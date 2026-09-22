@@ -1,0 +1,109 @@
+"""
+try: 
+
+    numero = int(input("Ingrese un número: "))
+
+    print(f"El número ingresado es: {numero}")
+
+except ValueError:
+
+    print("Error: Ingrese un número válido.") 
+"""
+#Ciclo infinito 
+""" 
+while True:
+        print("Hola mundo. ")
+""" 
+#Ciclo infinito
+edad = 18
+while edad >= 18:
+    try:
+        edad = int(input("Ingrese su edad: "))  
+        print(f"Su edad es: {edad}")
+    except ValueError:
+        print("Ingrese un número válido.")   
+print("Menor de edad. Saliendo del sistema. ")  
+
+# Ejercicio 1: try / except básico
+# Sin manejo de errores, ingresar "hola" en lugar de un número
+# provocaría un ValueError y el programa se detendría.
+
+try:
+    numero = int(input("Ingrese un número entero: "))
+    print(f"El número ingresado es: {numero}")
+except ValueError:
+    print("Error: debe ingresar un número entero válido.")
+
+# Ejercicio 2: División segura con ZeroDivisionError
+
+try:
+    dividendo = float(input("Ingrese el dividendo: "))
+    divisor   = float(input("Ingrese el divisor: "))
+    resultado = dividendo / divisor
+    print(f"Resultado: {dividendo} / {divisor} = {resultado}")
+except ZeroDivisionError:
+    print("Error: no es posible dividir entre cero.")
+except ValueError:
+    print("Error: ingrese únicamente valores numéricos.")
+
+# Ejercicio 3: else y finally
+# else  → se ejecuta solo si NO ocurrió ninguna excepción
+# finally → se ejecuta SIEMPRE, con o sin error
+
+try:
+    edad = int(input("Ingrese su edad: "))
+except ValueError:
+    print("Error: la edad debe ser un número entero.")
+else:
+    if edad >= 18:
+        print("Acceso permitido.")
+    else:
+        print("Acceso denegado: debe ser mayor de edad.")
+finally:
+    print("Verificación finalizada.")
+
+# Ejercicio 4: Solicitar un dato válido hasta que el usuario lo ingrese correctamente
+
+while True:
+    try:
+        nota = float(input("Ingrese una nota entre 0.0 y 5.0: "))
+        if nota < 0.0 or nota > 5.0:
+            raise ValueError("La nota debe estar entre 0.0 y 5.0.")
+        break   # sale del ciclo si el valor es válido
+    except ValueError as e:
+        print(f"Entrada inválida: {e}. Intente de nuevo.")
+
+print(f"Nota registrada: {nota}")
+
+# Ejercicio 5: raise — lanzar una excepción personalizada
+
+def calcular_promedio(notas):
+    if len(notas) == 0:
+        raise ValueError("La lista de notas no puede estar vacía.")
+    return sum(notas) / len(notas)
+
+try:
+    n      = int(input("¿Cuántas notas va a ingresar? "))
+    notas  = []
+    for i in range(n):
+        nota = float(input(f"  Nota {i + 1}: "))
+        notas.append(nota)
+    promedio = calcular_promedio(notas)
+    print(f"Promedio: {round(promedio, 2)}")
+except ValueError as e:
+    print(f"Error: {e}")
+
+
+# Taller 4 ejercicios para resolver.
+
+# 1. Solicitar al usuario dos numeros y un operador (+, -, /, *). Manejar try/except la division entre cero y la entrada no numerica.
+
+
+
+# 2. Pedir el nombre del archivo al usuario e intentarlo abrirlo con open(). Capturar FileNotFoundError y mostrar un mensaje claro.    
+
+# 3. Solicitar una fecha en formato DD/MM/AAAA. Usar try/except para capturar ValueError si el formato o los valores son inválidos.
+
+# 4. Crear una función raiz_cuadrada(n) que lance ValueError si n es negativo. Llamarla dentro de un try/except e informar al usuario.
+
+# 5. Solicitar números al usuario en un ciclo hasta que ingrese 'fin'. Acumular los válidos con try/except e ignorar los inválidos, mostrando al final la cantidad de valores aceptados y su promedio.

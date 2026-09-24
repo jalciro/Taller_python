@@ -98,8 +98,6 @@ except ValueError as e:
 
 # 1. Solicitar al usuario dos numeros y un operador (+, -, /, *). Manejar try/except la division entre cero y la entrada no numerica.
 
-
-
 # 2. Pedir el nombre del archivo al usuario e intentarlo abrirlo con open(). Capturar FileNotFoundError y mostrar un mensaje claro.    
 
 # 3. Solicitar una fecha en formato DD/MM/AAAA. Usar try/except para capturar ValueError si el formato o los valores son inválidos.
